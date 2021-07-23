@@ -104,7 +104,7 @@ $calc-padding: 1.75rem;
   padding: 0.5rem 0;
   cursor: pointer;
 
-  &:last-child {
+  &:nth-last-child(2) {
     background: $input-bg-color;
     color: $label-color;
   }

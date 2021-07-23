@@ -1,9 +1,10 @@
 document.addEventListener('alpine:init', () =>{
   Alpine.data('calculator', () => {
     const defaults = {
-      bill: 0,
-      people: 1,
-      tip: 0.05
+      bill: 142.55,
+      people: 5,
+      tip: 0.15,
+      custom: 0,
     };
 
     const formatter = new Intl.NumberFormat('en-US', {
@@ -20,6 +21,7 @@ document.addEventListener('alpine:init', () =>{
       bill: defaults.bill,
       tip: defaults.tip,
       people: defaults.people,
+      custom: defaults.custom,
 
       tipOptions: [
         { text: '5%', value: 0.05 },
@@ -30,9 +32,13 @@ document.addEventListener('alpine:init', () =>{
         { text: 'Custom', value: 'custom' },
       ],
 
+      getTip() {
+        return this.tip === 'custom' ? this.custom / 100 : this.tip
+      },
+
       getSplitTip() {
         const result = this.people > 0
-          ? (this.bill * this.tip) / this.people
+          ? (this.bill * this.getTip()) / this.people
           : 0;
 
         return toCurrency(result)
@@ -40,7 +46,7 @@ document.addEventListener('alpine:init', () =>{
 
       getSplitTotal() {
         const result = this.people > 0
-          ? (this.bill + (this.bill * this.tip)) / this.people
+          ? (this.bill + (this.bill * this.getTip())) / this.people
           : 0;
 
         return toCurrency(result)

@@ -9,24 +9,30 @@
       </div>
     </div>
 
+  <!--
+    tip === 'custom' && option.value === 'custom'
+  -->
 
     <div class="form-field">
       <label for="tip">Select Tip %</label>
       <div class="tip-options">
         <template x-for="option in tipOptions">
           <button
+            x-show="tip !== 'custom' || (tip === 'custom' && option.value !== 'custom')"
+            x-text="option.text"
             class="tip-option"
             :class="option.value == tip ? 'active' : ''"
-            @click="tip = option.value"
-            x-text="option.text"></button>
+            @click="tip = option.value">
+          </button>
         </template>
+        <input type="number" class="tip-option" x-model.number="custom" x-show="tip === 'custom'" autofocus />
       </div>
     </div>
 
     <div class="form-field">
       <label for="people">Number of People</label>
       <div class="form-control">
-        <input type="number" name="people" x-model.number="people">
+        <input type="number" name="people" x-model.number="people" :class="people < 1 ? 'warning': ''">
         <img class="icon" src="/images/icon-person.svg" alt="person" />
       </div>
     </div>
