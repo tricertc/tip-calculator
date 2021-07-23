@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Space+Mono:regular,italic,700,700italic);
+
+$base-font-stack: 'Space Mono', monospace;
+$base-font-size: 16px;
+
+html {
+  font-family: $base-font-stack;
+  font-size: $base-font-size;
+  font-weight: 400;
+}

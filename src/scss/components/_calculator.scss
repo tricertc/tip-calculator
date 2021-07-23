@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use 'sass:math';
+@use '../abstracts/mixins' as *;
+@use '../abstracts/placeholders' as *;
+@use '../abstracts/variables' as *;
+
+$calc-padding: 1rem;
+$calc-border-radius: 1.25rem;
+
+.calculator {
+  @extend %flex-column;
+
+  gap: $calc-padding;
+  padding: $calc-padding;
+  max-width: map.get($breakpoints, 'sm');
+  width: 100%;
+  border-radius: $calc-border-radius $calc-border-radius 0 0;
+
+  background-color: $color-white;
+
+  &__display,
+  &__input {
+    flex: 1;
+  }
+
+  @include media-up('sm') {
+    flex-direction: row;
+    border-radius: $calc-border-radius;
+  }
+}
+
+.calculator__display {
+  background: $color-dark;
+  padding: $calc-padding;
+  color: $color-primary;
+  border-radius: $calc-border-radius;
+
+  .result {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.calculator__input {
+  @extend %flex-column;
+
+  & > *:nth-child(2n) {
+    margin-bottom: 2rem;
+  }
+}
+
+.calculator__button {
+  background-color: $color-primary;
+  border: none;
+  padding: 0.5rem 0;
+  color: $color-dark;
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  border-radius: math.div($calc-border-radius, 3);
+}

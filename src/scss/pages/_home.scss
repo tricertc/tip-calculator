@@ -1,0 +1,19 @@
+@use '../abstracts/mixins' as *;
+
+.home .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home .logo {
+  padding: 3rem 0;
+}
+
+.home .calculator {
+  flex: 1;
+
+  @include media-up('sm') {
+    flex: inherit;
+  }
+}

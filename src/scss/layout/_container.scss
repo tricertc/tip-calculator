@@ -4,6 +4,7 @@
 .container {
   margin: 0 auto;
   max-width: 100%;
+  min-height: 100vh;
 
   @each $size, $width in $breakpoints {
     @include media-up($size) {

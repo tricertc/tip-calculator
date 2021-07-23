@@ -1,3 +1,11 @@
+@use 'colors';
+
+$body-bg-color: colors.$cyan-200;
+
+$color-primary: colors.$cyan-500;
+$color-dark: colors.$cyan-800;
+$color-white: colors.$white;
+
 $breakpoints: (
   'sm': 640px,
   'md': 768px,
