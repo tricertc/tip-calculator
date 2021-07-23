@@ -6,9 +6,21 @@ $color-primary: colors.$cyan-500;
 $color-dark: colors.$cyan-800;
 $color-white: colors.$white;
 
+$text-light: colors.$cyan-300;
+
+$input-bg-color: colors.$cyan-100;
+$input-text-color: colors.$cyan-800;
+$label-color: colors.$cyan-400;
+
 $breakpoints: (
   'sm': 640px,
   'md': 768px,
   'lg': 1024px,
   'xl': 1280px,
 );
+
+$font-weight-normal: 400;
+$font-weight-semibold: 500;
+$font-weight-bold: 700;
+
+$base-border-radius: 1.25rem;

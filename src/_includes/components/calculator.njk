@@ -1,37 +1,50 @@
 <div class="calculator" x-data="calculator">
   <div class="calculator__input">
-    <label for="bill">Bill</label>
-    <input type="number" name="bill" x-model="bill">
 
-    <label for="tip">Select Tip %</label>
-    <select name="tip" id="tip" value="tip">
-      <option value="0.05">5%</option>
-      <option value="0.10">10%</option>
-      <option value="0.15" selected>15%</option>
-      <option value="0.25">25%</option>
-      <option value="0.50">50%</option>
-      <option value="custom">Custom</option>
-    </select>
+    <div class="form-field">
+      <label for="bill">Bill</label>
+      <div class="form-control">
+        <input type="number" name="bill" x-model="bill">
+        <img class="icon" src="/images/icon-dollar.svg" alt="dollar sign" />
+      </div>
+    </div>
 
-    <label for="people">Number of People</label>
-    <input type="number" name="people" x-model="people">
+
+    <div class="form-field">
+      <label for="tip">Select Tip %</label>
+      <div class="tip-options">
+        <template x-for="option in tipOptions">
+          <button class="tip-option" x-text="option.text"></button>
+        </template>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="people">Number of People</label>
+      <div class="form-control">
+        <input type="number" name="people" x-model="people">
+        <img class="icon" src="/images/icon-person.svg" alt="person" />
+      </div>
+    </div>
   </div>
 
   <div class="calculator__display">
-    <div class="result">
-      <div class="label">
-        <strong>Tip Amount</strong>
-        <em>/ person</em>
+    <div class="results">
+      <div class="result">
+        <div class="label">
+          <strong>Tip Amount</strong>
+          <em>/ person</em>
+        </div>
+        <h1 class="value" x-text="getSplitTip"></h1>
       </div>
-      <h1 class="value" x-text="getSplitTip"></h1>
-    </div>
 
-    <div class="result">
-      <div class="label">
-        <strong>Total</strong>
-        <em>/ person</em>
+      <div class="result">
+        <div class="label">
+          <strong>Total</strong>
+          <em>/ person</em>
+        </div>
+        <h1 class="value" x-text="getSplitTotal"></h1>
       </div>
-      <h1 class="value" x-text="getSplitTotal"></h1>
     </div>
 
     <button class="calculator__button">Reset</button>

@@ -4,17 +4,16 @@
 @use '../abstracts/placeholders' as *;
 @use '../abstracts/variables' as *;
 
-$calc-padding: 1rem;
-$calc-border-radius: 1.25rem;
+$calc-padding: 1.75rem;
 
 .calculator {
   @extend %flex-column;
 
   gap: $calc-padding;
   padding: $calc-padding;
-  max-width: map.get($breakpoints, 'sm');
+  max-width: map.get($breakpoints, 'md');
   width: 100%;
-  border-radius: $calc-border-radius $calc-border-radius 0 0;
+  border-radius: $base-border-radius $base-border-radius 0 0;
 
   background-color: $color-white;
 
@@ -23,30 +22,49 @@ $calc-border-radius: 1.25rem;
     flex: 1;
   }
 
-  @include media-up('sm') {
+  @include media-up('md') {
     flex-direction: row;
-    border-radius: $calc-border-radius;
+    border-radius: $base-border-radius;
   }
 }
 
 .calculator__display {
+  @extend %flex-column;
+  justify-content: space-between;
   background: $color-dark;
   padding: $calc-padding;
   color: $color-primary;
-  border-radius: $calc-border-radius;
+  border-radius: $base-border-radius;
+
+  .results {
+    @extend %flex-column;
+    gap: 1.25rem;
+  }
 
   .result {
     display: flex;
     justify-content: space-between;
   }
+
+  .label {
+    color: $color-white;
+
+    strong {
+      display: block;
+    }
+
+    em {
+      color: $text-light;
+      font-size: 0.8rem;
+      font-weight: $font-weight-semibold;
+    }
+  }
 }
 
 .calculator__input {
   @extend %flex-column;
-
-  & > *:nth-child(2n) {
-    margin-bottom: 2rem;
-  }
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .calculator__button {
@@ -56,8 +74,8 @@ $calc-border-radius: 1.25rem;
   color: $color-dark;
   display: block;
   width: 100%;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   font-size: 1.25rem;
   text-transform: uppercase;
-  border-radius: math.div($calc-border-radius, 3);
+  border-radius: math.div($base-border-radius, 3);
 }

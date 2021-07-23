@@ -1,0 +1,35 @@
+@use 'sass:math';
+@use '../abstracts/variables' as *;
+
+.form-field {
+  width: 100%;
+
+  .form-control {
+    position: relative;
+  }
+
+  .form-control .icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+.form-field label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: $label-color;
+  font-weight: $font-weight-bold;
+}
+
+.form-field input[type='number'] {
+  border: none;
+  background-color: $input-bg-color;
+  color: $input-text-color;
+  font-size: 1.5rem;
+  font-weight: $font-weight-bold;
+  text-align: right;
+  border-radius: math.div($base-border-radius, 3);
+  padding: 0.25rem 0;
+  width: 100%;
+}
