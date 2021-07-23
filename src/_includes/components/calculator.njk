@@ -4,7 +4,7 @@
     <div class="form-field">
       <label for="bill">Bill</label>
       <div class="form-control">
-        <input type="number" name="bill" x-model="bill">
+        <input type="number" name="bill" x-model.number="bill">
         <img class="icon" src="/images/icon-dollar.svg" alt="dollar sign" />
       </div>
     </div>
@@ -14,7 +14,11 @@
       <label for="tip">Select Tip %</label>
       <div class="tip-options">
         <template x-for="option in tipOptions">
-          <button class="tip-option" x-text="option.text"></button>
+          <button
+            class="tip-option"
+            :class="option.value == tip ? 'active' : ''"
+            @click="tip = option.value"
+            x-text="option.text"></button>
         </template>
       </div>
     </div>
@@ -22,7 +26,7 @@
     <div class="form-field">
       <label for="people">Number of People</label>
       <div class="form-control">
-        <input type="number" name="people" x-model="people">
+        <input type="number" name="people" x-model.number="people">
         <img class="icon" src="/images/icon-person.svg" alt="person" />
       </div>
     </div>
@@ -47,6 +51,6 @@
       </div>
     </div>
 
-    <button class="calculator__button">Reset</button>
+    <button class="calculator__button" @click="reset()">Reset</button>
   </div>
 </div>

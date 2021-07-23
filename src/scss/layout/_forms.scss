@@ -17,7 +17,7 @@
 
 .form-field label {
   display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   color: $label-color;
   font-weight: $font-weight-bold;
 }
@@ -30,6 +30,17 @@
   font-weight: $font-weight-bold;
   text-align: right;
   border-radius: math.div($base-border-radius, 3);
-  padding: 0.25rem 0;
+  padding: 0.5rem 1rem;
   width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

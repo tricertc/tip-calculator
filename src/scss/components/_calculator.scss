@@ -65,6 +65,10 @@ $calc-padding: 1.75rem;
   @extend %flex-column;
   justify-content: space-between;
   gap: 1.5rem;
+
+  @include media-up('md') {
+    min-width: 55%;
+  }
 }
 
 .calculator__button {
@@ -78,4 +82,39 @@ $calc-padding: 1.75rem;
   font-size: 1.25rem;
   text-transform: uppercase;
   border-radius: math.div($base-border-radius, 3);
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.calculator .tip-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.calculator .tip-option {
+  flex: 0 0 45%;
+  background: $color-dark;
+  color: $color-white;
+  border: none;
+  border-radius: math.div($base-border-radius, 4);
+  font-weight: $font-weight-bold;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+
+  &:last-child {
+    background: $input-bg-color;
+    color: $label-color;
+  }
+
+  &.active {
+    background-color: $color-primary;
+    color: $color-primary-contrast;
+  }
+
+  @include media-up('sm') {
+    flex: 0 0 29%;
+  }
 }

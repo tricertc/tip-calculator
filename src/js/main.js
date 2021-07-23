@@ -1,5 +1,11 @@
 document.addEventListener('alpine:init', () =>{
   Alpine.data('calculator', () => {
+    const defaults = {
+      bill: 0,
+      people: 1,
+      tip: 0.05
+    };
+
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD'
@@ -11,9 +17,9 @@ document.addEventListener('alpine:init', () =>{
     }
 
     return {
-      bill: 142.55,
-      tip: 0.15,
-      people: 5,
+      bill: defaults.bill,
+      tip: defaults.tip,
+      people: defaults.people,
 
       tipOptions: [
         { text: '5%', value: 0.05 },
@@ -38,6 +44,12 @@ document.addEventListener('alpine:init', () =>{
           : 0;
 
         return toCurrency(result)
+      },
+
+      reset() {
+        this.bill = defaults.bill;
+        this.tip = defaults.tip;
+        this.people = defaults.people;
       }
     }
   })
