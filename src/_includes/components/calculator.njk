@@ -1,20 +1,20 @@
-<div class="calculator">
+<div class="calculator" x-data="calculator">
   <div class="calculator__input">
     <label for="bill">Bill</label>
-    <input type="number" name="bill" value="142.55">
+    <input type="number" name="bill" x-model="bill">
 
     <label for="tip">Select Tip %</label>
-    <select name="tip" id="tip">
+    <select name="tip" id="tip" value="tip">
       <option value="0.05">5%</option>
       <option value="0.10">10%</option>
-      <option value="0.15" selected="selected">15%</option>
+      <option value="0.15" selected>15%</option>
       <option value="0.25">25%</option>
       <option value="0.50">50%</option>
       <option value="custom">Custom</option>
     </select>
 
     <label for="people">Number of People</label>
-    <input type="number" name="people" value="5">
+    <input type="number" name="people" x-model="people">
   </div>
 
   <div class="calculator__display">
@@ -23,7 +23,7 @@
         <strong>Tip Amount</strong>
         <em>/ person</em>
       </div>
-      <h1 class="value">$4.27</h1>
+      <h1 class="value" x-text="getSplitTip"></h1>
     </div>
 
     <div class="result">
@@ -31,7 +31,7 @@
         <strong>Total</strong>
         <em>/ person</em>
       </div>
-      <h1 class="value">$32.79</h1>
+      <h1 class="value" x-text="getSplitTotal"></h1>
     </div>
 
     <button class="calculator__button">Reset</button>

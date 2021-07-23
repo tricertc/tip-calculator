@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="/css/main.css">
 
   <title>Frontend Mentor | {{ pageTitle }}</title>
+  <script defer src="/js/alpine.min.js"></script>
 </head>
 <body class="{{ pageClass }}">
   <div class="container">
     {{- content | safe -}}
     {%- include 'components/attribution.njk' -%}
   </div>
+  <script src="/js/main.js"></script>
 </body>
 </html>

@@ -9,6 +9,10 @@ module.exports = config => {
   config.addPassthroughCopy('src/images')
   config.addPassthroughCopy('src/js')
 
+  config.addPassthroughCopy({
+    'node_modules/alpinejs/dist/cdn.min.js': 'js/alpine.min.js'
+  })
+
   return {
     dir: {
       input: 'src',
