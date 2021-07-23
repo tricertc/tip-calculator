@@ -10,7 +10,9 @@
   <title>Frontend Mentor | {{ pageTitle }}</title>
 </head>
 <body class="{{ pageClass }}">
-  {{- content | safe -}}
-  {%- include 'components/attribution.njk' -%}
+  <div class="container">
+    {{- content | safe -}}
+    {%- include 'components/attribution.njk' -%}
+  </div>
 </body>
 </html>
